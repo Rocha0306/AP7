@@ -1,0 +1,109 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+struct Data {
+
+int Ano;
+int Mes;
+int Dia;
+
+
+
+
+
+
+};
+
+
+struct Data ObjetoData[2];
+
+void CalcularData() {
+
+        printf("Digite os dia entrada: ");
+        scanf("%d", &ObjetoData[0].Dia);
+        printf("Digite os mes entrada: ");
+        scanf("%d", &ObjetoData[0].Mes);
+        printf("Digite os dia: ");
+        scanf("%d", &ObjetoData[0].Ano);
+        printf("Digite os dia entrada: ");
+
+        printf("\n\n\n");
+
+
+        printf("Digite os dia entrada: ");
+        scanf("%d", &ObjetoData[1].Dia);
+        printf("Digite os mes entrada: ");
+        scanf("%d", &ObjetoData[1].Mes);
+        printf("Digite os dia: ");
+        scanf("%d", &ObjetoData[1].Ano);
+        printf("Digite os dia entrada: ");
+
+
+
+        printf("\n\n\n");
+
+        int CalculoDia = ObjetoData[1].Dia - ObjetoData[0].Dia;
+        int CalculoMes = ObjetoData[1].Mes - ObjetoData[0].Mes;
+        int CalculoAno = ObjetoData[1].Ano - ObjetoData[0].Ano;
+
+        printf("\nA diferenca entre ambas as datas eh: %d dia(s) %d mese(s) e %d ano(s)", CalculoDia, CalculoMes, CalculoAno);
+
+
+
+
+
+
+
+
+}
+
+void Saida() {
+exit(0);
+
+}
+
+
+
+
+int main() {
+
+    int Escolha;
+
+    for(;;) {
+
+printf("\n1.Data\n2.Saida");
+scanf("%d", &Escolha);
+switch(Escolha) {
+
+    case 1:
+        CalcularData();
+        break;
+
+    case 2:
+        Saida();
+        break;
+
+
+
+
+
+}
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+return 0;
+
+}
