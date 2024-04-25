@@ -1,0 +1,116 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Dados {
+char Nome[100];
+float Peso;
+float Altura;
+
+
+
+};
+
+
+struct Dados ObjetoDados[4];
+
+
+void ReceberDados() {
+
+    for(int i = 0; i < 4; i++) {
+    printf("Digite seu nome: ");
+    scanf("%s", &ObjetoDados[i].Nome);
+    printf("\nDigite seu peso: ");
+    scanf("%f", &ObjetoDados[i].Peso);
+    printf("\nDigite sua altura: ");
+    scanf("%f", &ObjetoDados[i].Altura);
+    }
+
+
+
+}
+
+void ImprimirDados() {
+
+    for(int i = 0; i < 4; i++) {
+    printf("\nNome: %s", ObjetoDados[i].Nome);
+    printf("\nPeso: %f", ObjetoDados[i].Peso);
+    printf("\nAltura: %f", ObjetoDados[i].Altura);
+
+    }
+
+
+
+
+}
+
+void CalcularIMC() {
+for(int i = 0; i < 4; i++) {
+    float IMC = ObjetoDados[i].Peso / (ObjetoDados[i].Altura * ObjetoDados[i].Altura);
+    printf("\nCalculo do IMC para %s: %f", ObjetoDados[i].Nome, IMC);
+
+
+}
+
+
+
+}
+
+
+
+
+void Saida() {
+
+exit(0);
+
+}
+
+
+
+int main() {
+
+int Escolha;
+
+for(;;) {
+printf("\n1.Receber todos os dados\n2.imprimi todos os dados\n3.Calcular IMC\n4.Saida\nO que deseja: ");
+scanf("%d", &Escolha);
+switch(Escolha) {
+
+case 1:
+    ReceberDados();
+
+    break;
+
+case 2:
+    ImprimirDados();
+
+    break;
+
+case 3:
+    CalcularIMC();
+    break;
+
+case 4:
+    Saida();
+
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+return 0;
+
+}
+
+
