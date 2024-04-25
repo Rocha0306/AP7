@@ -1,0 +1,144 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Dados {
+char Nome[100];
+char Endereco[100];
+char Cidade[100];
+char Estado[100];
+char CEP[100];
+
+
+
+
+
+
+
+};
+
+struct Dados VariavelDados[4];
+
+void ColetarDados() {
+
+    for(int i = 0; i < 4; i++) {
+    printf("\nDigite seu nome: ");
+    scanf("%s", &VariavelDados[i].Nome);
+
+
+
+    printf("\nDigite seu endereco: ");
+    scanf("%s", &VariavelDados[i].Endereco);
+
+
+
+    printf("\nDigite sua cidade: ");
+    scanf("%s", &VariavelDados[i].Cidade);
+
+
+
+    printf("\nDigite sua Estado: ");
+    scanf("%s", &VariavelDados[i].Estado);
+
+
+
+
+    printf("\nDigite seu CEP: ");
+    scanf("%s", &VariavelDados[i].CEP);
+    }
+
+
+    printf("\nBoa fez tudo");
+
+    }
+
+
+
+
+
+
+
+void MostrarDados() {
+
+    for(int i = 0; i < 4; i++) {
+    printf("\nNome: %s", VariavelDados[i].Nome);
+
+    
+
+    printf("\nEndereco: %s", VariavelDados[i].Endereco);
+
+    
+
+    printf("\nCidade: %s", VariavelDados[i].Cidade);
+
+    
+
+  
+    printf("\nEstado: %s", VariavelDados[i].Estado);
+
+    
+
+  
+    printf("\nCEP: %s", VariavelDados[i].CEP);
+
+
+    }
+
+
+
+
+
+
+}
+
+void Saida() {
+exit(0);
+
+}
+
+
+
+
+int main() {
+
+    int Escolha;
+
+    for(;;) {
+
+printf("\n1.Dados\n2.Ver Dados\n3.Saida");
+scanf("%d", &Escolha);
+switch(Escolha) {
+
+    case 1:
+        ColetarDados();
+        break;
+
+    case 2:
+        MostrarDados();
+        break;
+
+    case 3:
+        Saida();
+
+
+
+
+
+}
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+return 0;
+
+}
