@@ -1,109 +1,51 @@
 #include <stdio.h>
-#include <stdlib.h>
-
 
 struct Data {
-
-int Ano;
-int Mes;
-int Dia;
-
-
-
-
-
-
+    int dia;
+    int mes;
+    int ano;
 };
 
+int calcularDiferencaDias(struct Data data1, struct Data data2) {
+    int diasNoMes[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    int dias = 0;
 
-struct Data ObjetoData[2];
-
-void CalcularData() {
-
-        printf("Digite os dia entrada: ");
-        scanf("%d", &ObjetoData[0].Dia);
-        printf("Digite os mes entrada: ");
-        scanf("%d", &ObjetoData[0].Mes);
-        printf("Digite os dia: ");
-        scanf("%d", &ObjetoData[0].Ano);
-        printf("Digite os dia entrada: ");
-
-        printf("\n\n\n");
-
-
-        printf("Digite os dia entrada: ");
-        scanf("%d", &ObjetoData[1].Dia);
-        printf("Digite os mes entrada: ");
-        scanf("%d", &ObjetoData[1].Mes);
-        printf("Digite os dia: ");
-        scanf("%d", &ObjetoData[1].Ano);
-        printf("Digite os dia entrada: ");
-
-
-
-        printf("\n\n\n");
-
-        int CalculoDia = ObjetoData[1].Dia - ObjetoData[0].Dia;
-        int CalculoMes = ObjetoData[1].Mes - ObjetoData[0].Mes;
-        int CalculoAno = ObjetoData[1].Ano - ObjetoData[0].Ano;
-
-        printf("\nA diferenca entre ambas as datas eh: %d dia(s) %d mese(s) e %d ano(s)", CalculoDia, CalculoMes, CalculoAno);
-
-
-
-
-
-
-
-
-}
-
-void Saida() {
-exit(0);
-
-}
-
-
-
-
-int main() {
-
-    int Escolha;
-
-    for(;;) {
-
-printf("\n1.Data\n2.Saida");
-scanf("%d", &Escolha);
-switch(Escolha) {
-
-    case 1:
-        CalcularData();
-        break;
-
-    case 2:
-        Saida();
-        break;
-
-
-
-
-
-}
-
-
+    for (int ano = data1.ano; ano < data2.ano; ano++) {
+        if ((ano % 4 == 0 && ano % 100 != 0) || (ano % 400 == 0)) {
+            dias += 366;
+        } else {
+            dias += 365;
+        }
     }
 
+    for (int mes = data1.mes; mes <= 12; mes++) {
+        if (mes == data1.mes) {
+            dias += diasNoMes[mes - 1] - data1.dia;
+        } else {
+            dias += diasNoMes[mes - 1];
+        }
+    }
 
+    for (int mes = 1; mes < data2.mes; mes++) {
+        dias += diasNoMes[mes - 1];
+    }
+    dias += data2.dia;
 
+    return dias;
+}
 
+int main() {
+    struct Data data1, data2;
 
+    printf("Digite a primeira data (dd/mm/aaaa): ");
+    scanf("%d %d %d", &data1.dia, &data1.mes, &data1.ano);
 
+    printf("Digite a segunda data (dd/mm/aaaa): ");
+    scanf("%d %d %d", &data2.dia, &data2.mes, &data2.ano);
 
+    int diferencaDias = calcularDiferencaDias(data1, data2);
 
+    printf("O número de dias entre as datas é: %d\n", diferencaDias);
 
-
-
-
-return 0;
-
+    return 0;
 }
